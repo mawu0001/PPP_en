@@ -1,0 +1,151 @@
+---
+import { Image } from "astro:assets";
+import project1 from "../assets/images/project1.png";
+import project2 from "../assets/images/itmv.png";
+import project3 from "../assets/images/project3.png";
+import project4 from "../assets/images/project4.png";
+---
+
+<section id="section3">
+  <h4>
+    <span>03/ </span>
+  </h4>
+  <h2>projekter</h2>
+
+  <article class="flow-space">
+    <div>
+      <h3>
+        1/ animation <br /> hot dog puppy
+      </h3>
+      <p>
+        Jeg har designet og udviklet et minispil, der hedder Hot Dog Puppy. Mens
+        jeg arbejdede på dette projekt, skabte jeg min egen karakter og mine
+        egne spilaktiver, udover selv at kode spillet.
+      </p>
+      <div class="tags">
+        <p>html</p>
+        <p>css</p>
+        <p>javascript</p>
+        <p>illustrator</p>
+      </div>
+    </div>
+    <Image src={project1} alt="Picture of hot dog puppy the game" />
+  </article>
+  <article class="flow-space">
+    <Image src={project2} alt="screenshot of itmv website" />
+    <div>
+      <h3>
+        2/ virksomhedscase <br /> i tråd med verden
+      </h3>
+      <p>
+        Vi fik til opgave at lave en webfeature for I Tråd med Verden. Gennem
+        skitsering, prototyping og brugertests lavede vi en prototype af en
+        webfeature i Figma og kodede senere en version til nettet. Vi afsluttede
+        dette projekt ved at præsentere webfeaturen for virksomheden.
+      </p>
+      <div class="tags">
+        <p>brugertests</p>
+        <p>prototyping</p>
+        <p>astro frameworks</p>
+        <p>html</p>
+        <p>css</p>
+        <p>javascript</p>
+      </div>
+    </div>
+  </article>
+  <article class="flow-space">
+    <div>
+      <h3>
+        3/ eksamens projekt <br /> psykoterapi website
+      </h3>
+      <p>
+        I vores eksamensprojekt designede vi som gruppe en hjemmeside for en
+        psykoterapeut. Vi lavede en prototype, udførte brugertests og kodede
+        hjemmesiden ved hjælp af Astro-frameworks med HTML, CSS og JavaScript.
+        Vi opsatte også annoncer på Facebook og Instagram og lavede et par reels
+        i Premiere Pro.
+      </p>
+      <div class="tags">
+        <p>astro frameworks</p>
+        <p>brugertests</p>
+        <p>prototyping</p>
+        <p>html</p>
+        <p>css</p>
+        <p>javascript</p>
+        <p>lightroom</p>
+        <p>Facebook Ads</p>
+        <p>premiere pro</p>
+      </div>
+    </div>
+    <Image src={project4} alt="Picture of hot dog puppy the game" />
+  </article>
+  <article class="flow-space">
+    <Image src={project3} alt="screenshot of askexperts site" />
+    <div>
+      <h3>
+        4/ skole projekt <br /> askexperts
+      </h3>
+      <p>
+        I dette projekt var vores opgave at kode en hjemmeside ud fra en
+        prototype vi fik udleveret. Jeg har udnyttet min viden om JavaScript,
+        HTML og CSS mens jeg kodede i Astro-frameworks.
+      </p>
+      <div class="tags">
+        <p>astro frameworks</p>
+        <p>html</p>
+        <p>css</p>
+        <p>javascript</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    place-content: space-around;
+    margin-bottom: 3rem;
+
+    img {
+      width: 28rem;
+      height: auto;
+      border-radius: 1rem;
+    }
+    p {
+      margin-top: 0.5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      p {
+        background: var(--color-card-bg);
+        padding: 0.5rem 1rem;
+        width: fit-content;
+        border-radius: 2rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    article {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    img {
+      order: 2;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    article {
+      img {
+        width: 20rem;
+      }
+    }
+  }
+</style>

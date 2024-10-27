@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import fb from "../assets/images/fb.svg";
+import ig from "../assets/images/ig.svg";
+---
+
+<section id="section5" class="flow-space">
+  <article>
+    <h4><span>05/</span></h4>
+    <h2>kontakt</h2>
+  </article>
+
+  <article>
+    <h3>kontakt info</h3>
+    <p>mariewulff01@gmail.com</p>
+    <p>+45 52651659</p>
+    <a href="/www.linkedin.com/in/marie-wulff"
+      >CV: www.linkedin.com/in/marie-wulff</a
+    >
+  </article>
+
+  <article>
+    <h3>sociale medier</h3>
+    <div>
+      <Image src={fb} alt="facebook icon" />
+      <p>Marie wulff</p>
+    </div>
+    <div>
+      <Image src={ig} alt="instagram icon" />
+      <p>Marie_wulff</p>
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    > * + * {
+      margin-bottom: 3rem;
+    }
+  }
+
+  article {
+    a {
+      text-decoration: none;
+    }
+  }
+  div {
+    display: flex;
+    gap: 0.5rem;
+    img {
+      width: 24px;
+    }
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import profilePicture from "../assets/images/profilePicture.png";
+---
+
+<section id="section2">
+  <div>
+    <Image src={profilePicture} alt="Profile picture of Marie Wulff" />
+    <article>
+      <h4><span>02/</span></h4>
+      <h2>om mig</h2>
+      <p>
+        Til dagligt læser jeg multimediedesign på Københavns Erhvervsakademi.
+        Her på 3. semester, har jeg valgt at specialisere mig i <span
+          >frontend</span
+        > design.
+      </p>
+      <br />
+      <p>
+        Udenfor skolen, arbejder jeg for Gastrotools, hvor jeg sidder med
+        customer support. Når jeg hverken er i skole, eller på arbejde kan jeg
+        fanges med mine venner, træne i mit lokale fitnesscenter eller se en
+        film i biografen.
+      </p>
+      <br />
+      <p>
+        Jeg vil meget gerne studere backend-udvikling, eventuelt datamatiker, og
+        blive full-stack udvikler i fremtiden.
+      </p>
+    </article>
+  </div>
+</section>
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    article {
+      margin-bottom: 1rem;
+    }
+  }
+  img {
+    width: 15rem;
+    height: auto;
+    border-radius: 5%;
+    place-self: center;
+  }
+
+  @media (max-width: 800px) {
+    img {
+      order: 2;
+    }
+  }
+  @media (max-width: 600px) {
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>

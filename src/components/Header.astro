@@ -1,0 +1,217 @@
+---
+import ScrollProgressBar from "./ScrollProgressBar.astro";
+---
+
+<header class="full-bleed">
+  <nav>
+    <ul class="menu">
+      <li><a href="#section1">01/hej</a></li>
+      <li><a href="#section2">02/om mig</a></li>
+      <li><a href="#section3">03/projekter</a></li>
+      <li><a href="#section4">04/skills</a></li>
+      <li><a href="#section5">05/kontakt</a></li>
+    </ul>
+    <div class="burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+
+  <ScrollProgressBar />
+</header>
+
+<style>
+  header {
+    position: sticky;
+    background: var(--color-bg);
+    color: var(--color-txt);
+    top: 0;
+    z-index: 1000;
+    grid-column: full;
+  }
+
+  nav {
+    grid-column: elements;
+    display: flex;
+    align-items: center;
+    margin: 40px 40px 20px;
+  }
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    place-content: space-between;
+  }
+  li a {
+    color: var(--color-txt);
+    font-family: var(--primary-font);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .menu li {
+    margin-right: 20px;
+  }
+  .menu li:last-child {
+    margin-right: 0;
+  }
+  .menu a {
+    display: block;
+    padding: 10px;
+    color: var(--color-txt);
+    text-decoration: none;
+    transition: color 0.3s;
+    text-align: end;
+
+    transition:
+      color 0.3s,
+      font-weight 0.3s;
+  }
+  .menu a.active {
+    border-bottom: 2px solid var(--color-txt);
+    padding-bottom: 2px;
+    font-weight: 600;
+    color: var(--color-txt);
+    width: fit-content;
+  }
+  .menu a:hover {
+    color: var(--color-txt);
+    font-weight: 600;
+  }
+  .burger {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+  }
+  .burger .line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-txt);
+    margin-bottom: 5px;
+    transition: 0.2s linear;
+  }
+  .burger {
+    display: none;
+  }
+  /* Mobil */
+  @media screen and (max-width: 450px) {
+    .menu {
+      display: none;
+      background: var(--color-bg);
+    }
+    .burger {
+      display: block;
+    }
+
+    .burger.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      transition: 0.2s linear;
+    }
+    .burger.active .line:nth-child(2) {
+      opacity: 0;
+      transition: 0.15s linear;
+    }
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      transition: 0.2s linear;
+    }
+    nav.active .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      padding-bottom: 30px;
+      background: var(--color-bg);
+    }
+    nav.active .menu li {
+      margin: 10px 20px;
+    }
+  }
+  /* Tablet */
+  @media screen and (max-width: 800px) {
+    .menu {
+      display: none;
+    }
+    .burger {
+      display: block;
+    }
+
+    .burger.active .line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+      transition: 0.2s linear;
+    }
+    .burger.active .line:nth-child(2) {
+      opacity: 0;
+      transition: 0.15s linear;
+    }
+    .burger.active .line:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+      transition: 0.2s linear;
+    }
+    nav.active .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100vw;
+      z-index: 1;
+      padding-bottom: 30px;
+      height: 100vh;
+      min-width: 100%;
+      background: var(--color-bg);
+    }
+    nav.active .menu li {
+      margin: 10px 20px;
+    }
+    nav.active .menu a {
+      font-size: 18px;
+    }
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector("nav");
+    const links = document.querySelectorAll(".menu li a");
+
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      nav.classList.toggle("active");
+    });
+
+    links.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetAttribute = link.getAttribute("href");
+        const targetElement = document.querySelector(targetAttribute);
+
+        const headerHeight = document.querySelector("header").offsetHeight;
+        const extraSpace = 20;
+        const elementPosition =
+          targetElement.getBoundingClientRect().top +
+          window.scrollY -
+          headerHeight -
+          extraSpace;
+
+        window.scrollTo({
+          top: elementPosition,
+          behavior: "smooth",
+        });
+
+        // Close the menu on mobile
+        burger.classList.remove("active");
+        nav.classList.remove("active");
+      });
+    });
+  });
+</script>

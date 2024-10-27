@@ -1,0 +1,118 @@
+@layer reset, global, components, overrrides;
+@import url("./reset.css") layer(reset);
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --level--2: clamp(0.6rem, 0.6688rem + -0.0888vw, 0.651rem);
+  --level--1: clamp(0.75rem, 0.7921rem + -0.0543vw, 0.7813rem);
+  --level-0: clamp(0.9375rem, 0.9375rem + 0vw, 0.9375rem);
+  --level-1: clamp(1.125rem, 1.1087rem + 0.0815vw, 1.1719rem);
+  --level-2: clamp(1.35rem, 1.3101rem + 0.1997vw, 1.4648rem);
+  --level-3: clamp(1.62rem, 1.5466rem + 0.3671vw, 1.8311rem);
+  --level-4: clamp(1.944rem, 1.8241rem + 0.5997vw, 2.2888rem);
+  --level-5: clamp(2.3328rem, 2.1491rem + 0.9186vw, 2.861rem);
+
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  --color-txt: #181818;
+  --color-bg: #fcfbf7;
+  --color-card-bg: #f2f3eb;
+  --color-accent: #007129;
+
+  --primary-font: "Switzer", sans-serif;
+  --secondary-font: "Array", sans-serif;
+}
+/* font-family: 'Switzer', sans-serif;
+font-family: 'Array', sans-serif; */
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--primary-font);
+  font-size: var(--level-5);
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: uppercase;
+  color: var(--color-txt);
+
+  --flow-space: var(--space-l);
+}
+h2 {
+  font-family: var(--primary-font);
+  font-size: var(--level-4);
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  text-transform: lowercase;
+  color: var(--color-txt);
+
+  --flow-space: var(--space-m);
+}
+h3 {
+  font-family: var(--primary-font);
+  font-size: var(--level-0);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  color: var(--color-txt);
+
+  --flow-space: var(--space-s);
+}
+h4 {
+  font-family: var(--primary-font);
+  font-size: var(--level---1);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: lowercase;
+  color: var(--color-txt);
+}
+p,
+li,
+a {
+  font-family: var(--primary-font);
+  font-size: var(--level-0);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-txt);
+  max-width: 40ch;
+
+  --flow-space: var(--space-xs);
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+span {
+  color: var(--color-accent);
+  font-family: Array;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.flow-space {
+  > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+}
