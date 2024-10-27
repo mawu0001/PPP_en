@@ -7,28 +7,16 @@ import ig from "../assets/images/ig.svg";
 <section id="section5" class="flow-space">
   <article>
     <h4><span>05/</span></h4>
-    <h2>kontakt</h2>
+    <h2>contact</h2>
   </article>
 
   <article>
-    <h3>kontakt info</h3>
+    <h3>contact info</h3>
     <p>mariewulff01@gmail.com</p>
     <p>+45 52651659</p>
     <a href="/www.linkedin.com/in/marie-wulff"
       >CV: www.linkedin.com/in/marie-wulff</a
     >
-  </article>
-
-  <article>
-    <h3>sociale medier</h3>
-    <div>
-      <Image src={fb} alt="facebook icon" />
-      <p>Marie wulff</p>
-    </div>
-    <div>
-      <Image src={ig} alt="instagram icon" />
-      <p>Marie_wulff</p>
-    </div>
   </article>
 </section>
 
@@ -42,13 +30,10 @@ import ig from "../assets/images/ig.svg";
   article {
     a {
       text-decoration: none;
-    }
-  }
-  div {
-    display: flex;
-    gap: 0.5rem;
-    img {
-      width: 24px;
+      background: var(--color-card-bg);
+      padding: 0.2rem 0.5rem;
+      width: fit-content;
+      border-radius: 2rem;
     }
   }
 </style>
